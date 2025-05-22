@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 text-white p-4 shadow">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-bold">🌤️ Weather Tracker</h1>
+      <a href="index.html" class="text-sm hover:underline">⬅ Back to Main</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-5xl mx-auto px-4 py-10">
+    <!-- City Input -->
+    <div class="bg-white p-6 rounded-lg shadow border border-gray-200 mb-6">
+      <label for="cityInput" class="block text-lg font-semibold mb-2">Enter a City Name</label>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input
+          id="cityInput"
+          type="text"
+          placeholder="e.g. Kuala Lumpur"
+          class="flex-1 px-4 py-2 rounded border border-gray-300 focus:ring-2 focus:ring-indigo-500"
+        />
+        <button
+          onclick="getWeather()"
+          class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+        >
+          Get Weather
+        </button>
+      </div>
+    </div>
+
+    <!-- Weather Result -->
+    <div id="weatherResult" class="mb-8 px-2 text-gray-800 text-base"></div>
+
+    <!-- Temperature Chart -->
+    <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
+      <h2 class="text-xl font-semibold text-indigo-600 mb-4">🌡️ 5-Day Forecast (12 PM)</h2>
+      <canvas id="weatherChart" class="w-full h-64"></canvas>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t text-center text-sm text-gray-600 py-4">
+    &copy; 2025 Yasmin Aisyah • Powered by OpenWeather & Chart.js
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/weather.js"></script>
+</body>
+</html>
