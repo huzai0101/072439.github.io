@@ -13,9 +13,10 @@ async function getNews() {
   const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(topic)}&apiKey=${apiKey}`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
     if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    const data = await res.json();
+    const json = await res.json();
+    const data = JSON.parse(json.contents);
 
     if (!data.articles || data.articles.length === 0) {
       newsResult.innerHTML = `<p class="text-gray-600 col-span-full">No articles found for "<strong>${topic}</strong>".</p>`;
